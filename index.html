@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mastermind Matrix: The Black Label is a premium freight dispatch partnership engineered for ambitious owner-operators, leveraging loadboards, elite broker networks, and direct shippers.">
+    <meta name="keywords" content="Mastermind Matrix, The Black Label, freight dispatch, elite logistics, independent dispatchers, direct shippers, broker networks, loadboards">
+    <title>Mastermind Matrix: The Black Label | Elite Freight Dispatching</title>
+    
+    <style>
+        /* Elite Global Logistics Variables */
+        :root {
+            --bg-base: #0f1828; 
+            --text-main: #e2e8f0;
+            --text-muted: #a0aec0;
+            
+            --electric-blue: #3a7bd5;
+            --steel-silver: #cbd5e1;
+            --compass-gold: #b38b4d;
+            
+            --metal-silver-text: linear-gradient(90deg, #8ba3c0 0%, #ffffff 25%, #cbd5e1 50%, #ffffff 75%, #8ba3c0 100%);
+            --metal-blue-text: linear-gradient(90deg, #1e3c72 0%, #7ea5e8 25%, #3a7bd5 50%, #7ea5e8 75%, #1e3c72 100%);
+            --metal-button: linear-gradient(135deg, #4a8deb 0%, #2a5298 45%, #16305e 50%, #2a5298 55%, #3a7bd5 100%);
+            
+            --grid-line: rgba(58, 123, 213, 0.12);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            background-image: 
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-position: center center;
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        /* --- Animations --- */
+        @keyframes text-shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 20px rgba(58, 123, 213, 0.2)); }
+            50% { transform: translateY(-15px); filter: drop-shadow(0 25px 30px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 40px rgba(58, 123, 213, 0.5)); }
+            100% { transform: translateY(0px); filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 20px rgba(58, 123, 213, 0.2)); }
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 15px rgba(58, 123, 213, 0.4), inset 0 1px 2px rgba(255,255,255,0.6); }
+            50% { box-shadow: 0 0 30px rgba(58, 123, 213, 0.8), inset 0 2px 5px rgba(255,255,255,0.9); }
+            100% { box-shadow: 0 0 15px rgba(58, 123, 213, 0.4), inset 0 1px 2px rgba(255,255,255,0.6); }
+        }
+
+        /* Header Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: rgba(15, 24, 40, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .logo-container img {
+            max-height: 70px;
+            width: auto;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container img:hover {
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+        }
+
+        nav a {
+            color: var(--steel-silver);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.85rem;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--electric-blue);
+            transition: width 0.3s ease;
+            box-shadow: 0 0 8px var(--electric-blue);
+        }
+
+        nav a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(58, 123, 213, 0.8);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Dynamic Animated Metallic Titles */
+        .dynamic-title {
+            background: var(--metal-silver-text);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.8));
+            animation: text-shimmer 6s linear infinite;
+            text-transform: uppercase;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 5%;
+            min-height: 85vh;
+            background: radial-gradient(circle at top left, rgba(58, 123, 213, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at bottom right, rgba(179, 139, 77, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            line-height: 1.15;
+            letter-spacing: 2px;
+        }
+
+        .hero-content h1 span {
+            background: var(--metal-blue-text);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            font-size: 2.8rem;
+            margin-top: 5px;
+            animation: text-shimmer 4s linear infinite reverse;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 40px;
+            max-width: 650px;
+            font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        /* Eye-Catching CTA Button */
+        .btn {
+            display: inline-block;
+            padding: 18px 40px;
+            background: var(--metal-button);
+            color: #ffffff;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 6px;
+            border: 1px solid #7ea5e8;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            position: relative;
+            overflow: hidden;
+            animation: pulse-glow 3s infinite alternate;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);
+            transform: skewX(-25deg);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            border-color: #ffffff;
+            color: #ffffff;
+        }
+
+        .btn:hover::before {
+            left: 200%;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* Strategies Section */
+        .strategies-section {
+            padding: 100px 5%;
+            background: linear-gradient(180deg, rgba(15, 24, 40, 0) 0%, rgba(9, 14, 24, 0.95) 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .strategies-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .strategies-section p.lead {
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+            color: var(--text-main);
+            font-size: 1.15rem;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            flex-wrap: wrap;
+        }
+
+        /* Premium Glassmorphism Cards */
+        .feature-box {
+            background: rgba(22, 36, 59, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 50px 35px;
+            border-radius: 12px;
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            text-align: left;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(126, 165, 232, 0.6);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(58, 123, 213, 0.2);
+        }
+
+        .feature-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 50px 50px 0;
+            border-color: transparent var(--compass-gold) transparent transparent;
+            opacity: 0.3;
+            transition: all 0.4s ease;
+        }
+
+        .feature-box:hover::after {
+            opacity: 0.9;
+            filter: drop-shadow(-2px 2px 5px rgba(0,0,0,0.5));
+        }
+
+        .feature-box h3 {
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .feature-box h3::before {
+            content: "";
+            display: block;
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(135deg, #7ea5e8, #3a7bd5);
+            box-shadow: 0 0 12px var(--electric-blue), inset 0 2px 2px rgba(255,255,255,0.8);
+            border-radius: 2px;
+        }
+
+        .feature-box p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* --- Contact Banner --- */
+        .contact-banner {
+            background: linear-gradient(90deg, rgba(15,24,40,1) 0%, rgba(22,36,59,1) 50%, rgba(15,24,40,1) 100%);
+            border-top: 1px solid var(--electric-blue);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 30px 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            box-shadow: 0 0 30px rgba(58, 123, 213, 0.15);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-main);
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .contact-item span {
+            color: var(--electric-blue);
+            text-shadow: 0 0 8px rgba(58, 123, 213, 0.5);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .contact-item a {
+            color: var(--steel-silver);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: #06090f;
+            padding: 50px 5%;
+            text-align: center;
+            box-shadow: inset 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        footer .footer-links {
+            margin-bottom: 25px;
+        }
+        
+        footer .footer-links a {
+            color: var(--text-muted);
+            margin: 0 15px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        footer .footer-links a:hover {
+            color: var(--steel-silver);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        footer p {
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 40px 5%;
+            }
+
+            .hero-content {
+                padding-right: 0;
+                margin-top: 40px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-content h1 span {
+                font-size: 2.2rem;
+            }
+
+            .contact-banner {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="Mastermind Matrix The Black Label High-Tech Emblem.png" alt="Mastermind Matrix: The Black Label Logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">About Us</a></li>
+                <li><a href="#enrollment">Enrollment Review</a></li>
+                <li><a href="carrier.html">Onboarding</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#login" style="color: #7ea5e8; text-shadow: 0 0 12px rgba(58, 123, 213, 0.8);">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="dynamic-title">The Apex of Freight <span>Dispatching</span></h1>
+            <p>Mastermind Matrix: The Black Label is an exclusive logistics partnership designed for ambitious owner-operators. By leveraging advanced loadboard analytics, elite broker networks, and direct shipper relationships, we engineer profitability and transform market volatility into compounding success.</p>
+            <a href="carrier.html" class="btn">Join The Network</a>
+        </div>
+        <div class="hero-image">
+            <img src="Mastermind Matrix The Black Label High-Tech Emblem.png" alt="Mastermind Matrix: The Black Label High-Tech Emblem">
+        </div>
+    </section>
+
+    <!-- Operational Strategies Section -->
+    <section id="services" class="strategies-section">
+        <h2 class="dynamic-title">A Blueprint for Elite Logistics</h2>
+        <p class="lead">We are not an answering service for load boards. We are your dedicated back-office executives, providing a tri-pillar approach to revenue optimization that keeps your equipment moving in the highest-yielding freight corridors.</p>
+        
+        <div class="features">
+            <!-- Shippers -->
+            <div class="feature-box">
+                <h3>Direct Shipper Access</h3>
+                <p>We bypass the middleman whenever possible. By cultivating strong, direct relationships with premier shippers, we secure dedicated freight and consistent lanes, ensuring your trucks run with reliable, high-paying cargo.</p>
+            </div>
+
+            <!-- Brokers -->
+            <div class="feature-box">
+                <h3>Elite Broker Negotiation</h3>
+                <p>We approach top-tier brokers not as order-takers, but as strategic partners. We leverage our extensive industry network and firm reputation to demand the premium rates your equipment and professionalism deserve.</p>
+            </div>
+
+            <!-- Loadboards -->
+            <div class="feature-box">
+                <h3>Precision Loadboard Analytics</h3>
+                <p>We don't just guess or blindly scroll. We utilize real-time market forecasting and granular loadboard data to reverse-engineer the most profitable routes, minimizing deadhead and maximizing your hours of service.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Elite Contact Banner -->
+    <div id="contact" class="contact-banner">
+        <div class="contact-item">
+            <span>Email</span>
+            <a href="mailto:dispatch@mmblacklabel.com">dispatch@mmblacklabel.com</a>
+        </div>
+        <div class="contact-item">
+            <span>Call</span>
+            <a href="tel:2053836124">(205) 383-6124</a>
+        </div>
+        <div class="contact-item">
+            <span>Alt</span>
+            <a href="tel:2562797975">(256) 279-7975</a>
+        </div>
+        <div class="contact-item">
+            <span>Hours</span>
+            Open 24/7
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#services">About Us</a>
+            <a href="#enrollment">Enrollment Review</a>
+            <a href="carrier.html">Onboarding</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+        <p>&copy; 2026 Mastermind Matrix: The Black Label. All Rights Reserved.</p>
+        <p style="margin-top: 10px;">Driven to Deliver Consistent Profits and Partnership.</p>
+    </footer>
+
+</body>
+</html>
