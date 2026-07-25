@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about Mastermind Matrix: The Black Label. We are an exclusive, premium logistics partnership designed specifically for the industry's most ambitious owner-operators.">
-    <title>About Us | Mastermind Matrix: The Black Label</title>
+    <meta name="description" content="About Crown Access. Discover our elite freight dispatch partnership and logistics management services.">
+    <title>About Us | Crown Access</title>
     
     <style>
         /* Elite Global Logistics Variables */
@@ -18,7 +18,6 @@
             --compass-gold: #b38b4d;
             
             --metal-silver-text: linear-gradient(90deg, #8ba3c0 0%, #ffffff 25%, #cbd5e1 50%, #ffffff 75%, #8ba3c0 100%);
-            --metal-blue-text: linear-gradient(90deg, #1e3c72 0%, #7ea5e8 25%, #3a7bd5 50%, #7ea5e8 75%, #1e3c72 100%);
             --metal-button: linear-gradient(135deg, #4a8deb 0%, #2a5298 45%, #16305e 50%, #2a5298 55%, #3a7bd5 100%);
             
             --grid-line: rgba(58, 123, 213, 0.12);
@@ -51,16 +50,10 @@
             transition: all 0.3s ease;
         }
 
-        /* --- Animations --- */
+        /* Animations */
         @keyframes text-shimmer {
             0% { background-position: -200% center; }
             100% { background-position: 200% center; }
-        }
-
-        @keyframes pulse-glow {
-            0% { box-shadow: 0 0 15px rgba(58, 123, 213, 0.4), inset 0 1px 2px rgba(255,255,255,0.6); }
-            50% { box-shadow: 0 0 30px rgba(58, 123, 213, 0.8), inset 0 2px 5px rgba(255,255,255,0.9); }
-            100% { box-shadow: 0 0 15px rgba(58, 123, 213, 0.4), inset 0 1px 2px rgba(255,255,255,0.6); }
         }
 
         /* Header Navigation */
@@ -136,7 +129,7 @@
             text-transform: uppercase;
         }
 
-        /* --- About Section --- */
+        /* --- About Content Section --- */
         .about-section {
             padding: 80px 5% 100px;
             text-align: center;
@@ -145,31 +138,21 @@
             z-index: 1;
         }
 
-        /* Subtle background glow behind the content */
         .about-section::before {
             content: '';
             position: absolute;
-            top: 40%; left: 50%;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 90%; height: 90%;
-            background: radial-gradient(circle, rgba(179, 139, 77, 0.08) 0%, transparent 70%);
+            width: 80%; height: 80%;
+            background: radial-gradient(circle, rgba(58, 123, 213, 0.1) 0%, transparent 70%);
             z-index: -1;
             pointer-events: none;
         }
 
         .about-section h1 {
-            font-size: 3.2rem;
+            font-size: 3rem;
             margin-bottom: 15px;
             letter-spacing: 2px;
-        }
-
-        .about-intro {
-            color: var(--text-main);
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 40px auto;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-            font-weight: 300;
         }
 
         .glass-panel {
@@ -183,9 +166,9 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.4);
             position: relative;
             overflow: hidden;
-            padding: 60px;
-            max-width: 1000px;
-            margin: 0 auto;
+            padding: 50px;
+            max-width: 900px;
+            margin: 40px auto 0;
             text-align: left;
         }
 
@@ -197,143 +180,24 @@
             width: 0;
             height: 0;
             border-style: solid;
-            border-width: 0 80px 80px 0;
+            border-width: 0 60px 60px 0;
             border-color: transparent var(--compass-gold) transparent transparent;
-            opacity: 0.2;
+            opacity: 0.5;
             pointer-events: none;
         }
 
-        .about-text {
-            color: var(--text-main);
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 40px;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-        }
-        
-        .about-text strong {
-            color: #ffffff;
-            font-weight: 700;
-        }
-
-        .difference-header {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-align: center;
-            border-bottom: 1px solid rgba(126, 165, 232, 0.3);
-            padding-bottom: 15px;
-        }
-
-        /* Grid for The Black Label Difference */
-        .perks-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-bottom: 50px;
-        }
-
-        .perk-card {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(58, 123, 213, 0.2);
-            padding: 30px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .perk-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 4px; height: 100%;
-            background: var(--metal-button);
-            border-radius: 8px 0 0 8px;
-        }
-
-        .perk-card:hover {
-            transform: translateY(-5px);
-            background: rgba(0, 0, 0, 0.5);
-            border-color: rgba(126, 165, 232, 0.5);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-
-        .perk-card h3 {
-            color: #ffffff;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            text-transform: uppercase;
+        .about-content h2 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
             letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
-        .perk-card h3::before {
-            content: "";
-            display: block;
-            width: 8px;
-            height: 8px;
-            background: var(--electric-blue);
-            box-shadow: 0 0 8px var(--electric-blue);
-            transform: rotate(45deg);
-        }
-
-        .perk-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .cta-container {
-            text-align: center;
-            margin-top: 20px;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .cta-container p {
-            font-size: 1.1rem;
-            margin-bottom: 25px;
+        .about-content p {
             color: var(--text-main);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 18px 40px;
-            background: var(--metal-button);
-            color: #ffffff;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-radius: 6px;
-            border: 1px solid #7ea5e8;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-            position: relative;
-            overflow: hidden;
-            animation: pulse-glow 3s infinite alternate;
-            transition: all 0.3s ease;
-            z-index: 1;
-            cursor: pointer;
-            text-align: center;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);
-            transform: skewX(-25deg);
-            transition: all 0.5s ease;
-            z-index: -1;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            border-color: #ffffff;
-            color: #ffffff;
-        }
-
-        .btn:hover::before {
-            left: 200%;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
         }
 
         /* --- Contact Banner --- */
@@ -426,14 +290,6 @@
                 font-size: 2.2rem;
             }
 
-            .glass-panel {
-                padding: 30px 20px;
-            }
-
-            .perks-grid {
-                grid-template-columns: 1fr;
-            }
-
             .contact-banner {
                 flex-direction: column;
                 gap: 20px;
@@ -448,7 +304,7 @@
     <header>
         <div class="logo-container">
             <a href="index.html">
-                <img src="Mastermind Matrix The Black Label High-Tech Emblem.png" alt="Mastermind Matrix: The Black Label Logo">
+                <img src="Mastermind Matrix The Black Label High-Tech Emblem.png" alt="Crown Access Logo">
             </a>
         </div>
         <nav>
@@ -463,46 +319,26 @@
         </nav>
     </header>
 
-    <!-- Main About Section -->
+    <!-- About Us Section -->
     <main class="about-section">
-        <h1 class="dynamic-title">Beyond Dispatch.</h1>
-        <p class="about-intro">A Blueprint for Elite Logistics.</p>
+        <h1 class="dynamic-title">About Crown Access</h1>
+        <p style="color: var(--text-main); font-size: 1.15rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Driving consistent profits and elite partnerships in logistics management.</p>
         
         <div class="glass-panel">
-            
-            <p class="about-text">
-                Most dispatchers just find freight; we engineer profitability. <strong>Mastermind Matrix: The Black Label</strong> was not built to be an answering service for load boards. We are an exclusive, premium logistics partnership designed specifically for the industry's most ambitious owner-operators.
-            </p>
-            <p class="about-text">
-                As a premier firm owned and operated by independent black dispatchers, we understand the grit required to thrive in transportation. We know that surviving isn't enough—you need to dominate your lanes. That is why we offer what traditional dispatchers cannot: a bespoke operational strategy that transforms market volatility into predictable, compounding success.
-            </p>
-
-            <h2 class="dynamic-title difference-header">The Black Label Difference</h2>
-            
-            <div class="perks-grid">
-                <div class="perk-card">
-                    <h3>Precision Data Analytics</h3>
-                    <p>We don't guess. We leverage real-time market forecasting and granular data to position your equipment in the highest-yielding freight corridors before the market shifts.</p>
-                </div>
-                <div class="perk-card">
-                    <h3>Elite Route Optimization</h3>
-                    <p>Every route is reverse-engineered for maximum profit, factoring in fuel costs, deadhead minimization, and meticulous driver clock management.</p>
-                </div>
-                <div class="perk-card">
-                    <h3>Unmatched Negotiation Leverage</h3>
-                    <p>We approach brokers not as order-takers, but as strategic partners, demanding the premium rates your equipment and absolute professionalism deserve.</p>
-                </div>
-                <div class="perk-card">
-                    <h3>True Concierge Partnership</h3>
-                    <p>You are never a truck number. You receive dedicated, one-on-one management focused entirely on running your business with confidence and consistency.</p>
-                </div>
+            <div class="about-content">
+                <h2>Our Mission & Expertise</h2>
+                <p>At Crown Access, we specialize in high-level freight dispatching and logistics operations designed to maximize carrier profitability and streamline supply chain performance. Our operational framework blends cutting-edge technology with dedicated industry expertise to secure top-tier freight rates and eliminate downtime.</p>
+                
+                <p>Whether you are an independent carrier looking to scale your fleet operations or a professional aiming to master the logistics industry through our comprehensive training programs, Crown Access provides the infrastructure and support needed for long-term success.</p>
+                
+                <h3 style="color: #fff; margin-top: 30px; margin-bottom: 15px; font-size: 1.3rem;">Get In Touch With Our Team</h3>
+                <p>Ready to elevate your logistics operations? Connect with our dispatch command center directly via phone or email:</p>
+                <p style="margin-top: 15px;">
+                    <strong>Email:</strong> <a href="mailto:dispatch@mmblacklabel.com" style="color: var(--electric-blue); text-decoration: underline;">dispatch@mmblacklabel.com</a><br>
+                    <strong>Primary Line:</strong> <a href="tel:2053836124" style="color: var(--electric-blue); text-decoration: underline;">(205) 383-6124</a><br>
+                    <strong>Alternate Line:</strong> <a href="tel:2562797975" style="color: var(--electric-blue); text-decoration: underline;">(256) 279-7975</a>
+                </p>
             </div>
-
-            <div class="cta-container">
-                <p>Step out of the noise and into the matrix. Experience an operational partnership designed exclusively for owner-operators who are committed to maximizing their income without the administrative hassle.</p>
-                <a href="carrier.html" class="btn">Partner With Us</a>
-            </div>
-
         </div>
     </main>
 
@@ -535,7 +371,7 @@
             <a href="carrier.html">Onboarding</a>
             <a href="#contact">Contact Us</a>
         </div>
-        <p>&copy; 2026 Mastermind Matrix: The Black Label. All Rights Reserved.</p>
+        <p>&copy; 2026 Crown Access. All Rights Reserved.</p>
         <p style="margin-top: 10px;">Driven to Deliver Consistent Profits and Partnership.</p>
     </footer>
 
