@@ -443,14 +443,12 @@
         <p style="color: var(--text-main); font-size: 1.15rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Submit your credentials below to initiate your elite partnership.</p>
         
         <div class="glass-panel">
-            <!-- FormSubmit Endpoint Integration -->
-            <form action="https://formsubmit.co/el/kitube" method="POST" enctype="multipart/form-data">
+            <!-- StaticForms Integration -->
+            <form action="https://api.staticforms.dev/submit" method="POST" enctype="multipart/form-data">
                 
-                <!-- Disable Captcha for smooth driver experience -->
-                <input type="hidden" name="_captcha" value="false">
-                
-                <!-- Custom Email Subject -->
-                <input type="hidden" name="_subject" value="New Carrier Onboarding Submission - Mastermind Matrix">
+                <!-- StaticForms API Key and Subject -->
+                <input type="hidden" name="apiKey" value="sf_3d22617cc95608c707ebaac3" />
+                <input type="hidden" name="subject" value="Master Mind Black Label submission" />
 
                 <div class="form-grid">
                     <!-- Standard Inputs -->
