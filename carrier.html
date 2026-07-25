@@ -443,12 +443,8 @@
         <p style="color: var(--text-main); font-size: 1.15rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Submit your credentials below to initiate your elite partnership.</p>
         
         <div class="glass-panel">
-            <!-- FormBold Endpoint Integration -->
-            <form action="https://formbold.com/s/oyXeJ" method="POST" enctype="multipart/form-data">
-                
-                <!-- Custom Email Subject -->
-                <input type="hidden" name="subject" value="New Carrier Onboarding Submission - Crown Access">
-
+            <!-- Native Supabase Form Integration -->
+            <form id="carrierForm">
                 <div class="form-grid">
                     <!-- Standard Inputs -->
                     <div class="form-group">
@@ -476,24 +472,99 @@
                         <input type="text" id="companyName" name="companyName" required placeholder="LLC or Inc.">
                     </div>
 
-                    <!-- Document Uploads (Single input allowing multiple files) -->
+                    <!-- Document Uploads (Multiple files allowed) -->
                     <div class="form-group full-width">
                         <h3 style="color: #fff; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; font-weight: 500; letter-spacing: 1px;">Required Documents (Optional)</h3>
                     </div>
                     
                     <div class="form-group full-width">
                         <label>Upload All Documents (W-9, COI, NOA, License, Authority)</label>
-                        <input type="file" name="documents" multiple>
+                        <input type="file" id="documents" multiple>
                         <small style="color: var(--text-muted); margin-top: 5px; display: block;">You can select multiple files at once (Hold Ctrl or Cmd while clicking to select all your documents).</small>
                     </div>
                 </div>
 
                 <div style="text-align: center; margin-top: 40px;">
-                    <button type="submit" class="btn">Submit Credentials</button>
+                    <button type="submit" id="submitBtn" class="btn">Submit Credentials</button>
                 </div>
             </form>
         </div>
     </main>
+
+    <!-- Supabase CDN Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // Initialize Supabase client using your provided project URL and token key
+        const SUPABASE_URL = 'https://ricofgfjazizhxisdhkx.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpY29mZ2ZqYXppemh4aXNkaGt4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUwMDcxOTMsImV4cCI6MjEwMDU4MzE5M30.RmBU10OFR1d2HwfTHBSjz5WCA2bZ0pwvkxLOHvcmtm0';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        document.getElementById('carrierForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('submitBtn');
+            btn.textContent = 'Submitting...';
+            btn.disabled = true;
+
+            try {
+                const firstName = document.getElementById('firstName').value;
+                const lastName = document.getElementById('lastName').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const mcDot = document.getElementById('mcDot').value;
+                const companyName = document.getElementById('companyName').value;
+                const fileInput = document.getElementById('documents');
+
+                let fileUrls = [];
+
+                // Upload files to Supabase Storage bucket 'carrier-documents' if present
+                if (fileInput.files.length > 0) {
+                    for (let file of fileInput.files) {
+                        const filePath = `carriers/${Date.now()}_${file.name}`;
+                        const { data, error } = await supabaseClient.storage
+                            .from('carrier-documents')
+                            .upload(filePath, file);
+
+                        if (error) throw error;
+
+                        // Get Public URL for the uploaded file
+                        const { data: { publicUrl } } = supabaseClient.storage
+                            .from('carrier-documents')
+                            .getPublicUrl(filePath);
+
+                        fileUrls.push(publicUrl);
+                    }
+                }
+
+                // Insert submission record into your 'carriers' Supabase table
+                const { error: dbError } = await supabaseClient
+                    .from('carriers')
+                    .insert([
+                        { 
+                            first_name: firstName, 
+                            last_name: lastName, 
+                            email: email, 
+                            phone: phone, 
+                            mc_dot: mcDot, 
+                            company_name: companyName,
+                            document_urls: fileUrls
+                        }
+                    ]);
+
+                if (dbError) throw dbError;
+
+                alert('Credentials and documents successfully submitted!');
+                document.getElementById('carrierForm').reset();
+
+            } catch (error) {
+                console.error('Error submitting form:', error.message);
+                alert('Submission failed. Please try again or email documents directly.');
+            } finally {
+                btn.textContent = 'Submit Credentials';
+                btn.disabled = false;
+            }
+        });
+    </script>
 
     <!-- Elite Contact Banner -->
     <div id="contact" class="contact-banner">
