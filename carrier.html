@@ -1,66 +1,547 @@
-<form action="https://formspree.io/f/xdaqpyqa" method="POST" enctype="multipart/form-data">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Carrier Onboarding for Mastermind Matrix: The Black Label. Submit your credentials to initiate your elite freight dispatch partnership.">
+    <title>Carrier Onboarding | Mastermind Matrix: The Black Label</title>
     
-    <!-- Disable Captcha for smooth driver experience -->
-    <input type="hidden" name="_captcha" value="false">
-    
-    <!-- Custom Email Subject -->
-    <input type="hidden" name="_subject" value="New Carrier Onboarding Submission - Mastermind Matrix">
+    <style>
+        /* Elite Global Logistics Variables */
+        :root {
+            --bg-base: #0f1828; 
+            --text-main: #e2e8f0;
+            --text-muted: #a0aec0;
+            
+            --electric-blue: #3a7bd5;
+            --steel-silver: #cbd5e1;
+            --compass-gold: #b38b4d;
+            
+            --metal-silver-text: linear-gradient(90deg, #8ba3c0 0%, #ffffff 25%, #cbd5e1 50%, #ffffff 75%, #8ba3c0 100%);
+            --metal-button: linear-gradient(135deg, #4a8deb 0%, #2a5298 45%, #16305e 50%, #2a5298 55%, #3a7bd5 100%);
+            
+            --grid-line: rgba(58, 123, 213, 0.12);
+        }
 
-    <div class="form-grid">
-        <!-- Standard Inputs -->
-        <div class="form-group">
-            <label for="firstName">First Name</label>
-            <input type="text" id="firstName" name="firstName" required placeholder="John">
-        </div>
-        <div class="form-group">
-            <label for="lastName">Last Name</label>
-            <input type="text" id="lastName" name="lastName" required placeholder="Doe">
-        </div>
-        <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required placeholder="driver@example.com">
-        </div>
-        <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" required placeholder="(555) 555-5555">
-        </div>
-        <div class="form-group">
-            <label for="mcDot">MC / DOT Number</label>
-            <input type="text" id="mcDot" name="mcDot" required placeholder="Enter MC or DOT #">
-        </div>
-        <div class="form-group">
-            <label for="companyName">Company Name</label>
-            <input type="text" id="companyName" name="companyName" required placeholder="LLC or Inc.">
-        </div>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
 
-        <!-- Document Uploads (Optional) -->
-        <div class="form-group full-width">
-            <h3 style="color: #fff; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; font-weight: 500; letter-spacing: 1px;">Required Documents (Optional)</h3>
-        </div>
+        body {
+            background-color: var(--bg-base);
+            background-image: 
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-position: center center;
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        /* Animations */
+        @keyframes text-shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 15px rgba(58, 123, 213, 0.4), inset 0 1px 2px rgba(255,255,255,0.6); }
+            50% { box-shadow: 0 0 30px rgba(58, 123, 213, 0.8), inset 0 2px 5px rgba(255,255,255,0.9); }
+            100% { box-shadow: 0 0 15px rgba(58, 123, 213, 0.4), inset 0 1px 2px rgba(255,255,255,0.6); }
+        }
+
+        /* Header Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: rgba(15, 24, 40, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .logo-container img {
+            max-height: 70px;
+            width: auto;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container img:hover {
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+        }
+
+        nav a {
+            color: var(--steel-silver);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.85rem;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--electric-blue);
+            transition: width 0.3s ease;
+            box-shadow: 0 0 8px var(--electric-blue);
+        }
+
+        nav a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(58, 123, 213, 0.8);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .dynamic-title {
+            background: var(--metal-silver-text);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.8));
+            animation: text-shimmer 6s linear infinite;
+            text-transform: uppercase;
+        }
+
+        /* --- Onboarding Form Section --- */
+        .onboarding-section {
+            padding: 80px 5% 100px;
+            text-align: center;
+            flex-grow: 1; 
+            position: relative;
+            z-index: 1;
+        }
+
+        .onboarding-section::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%; height: 80%;
+            background: radial-gradient(circle, rgba(58, 123, 213, 0.1) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .onboarding-section h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .glass-panel {
+            background: rgba(22, 36, 59, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+            padding: 50px;
+            max-width: 900px;
+            margin: 40px auto 0;
+            text-align: left;
+        }
+
+        .glass-panel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 60px 60px 0;
+            border-color: transparent var(--compass-gold) transparent transparent;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+        }
+
+        .form-group label {
+            color: var(--steel-silver);
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"] {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(126, 165, 232, 0.3);
+            padding: 15px;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--electric-blue);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5), 0 0 15px rgba(58, 123, 213, 0.3);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .form-group input[type="file"] {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px dashed rgba(126, 165, 232, 0.5);
+            padding: 10px;
+            border-radius: 4px;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input[type="file"]:hover {
+            border-color: var(--electric-blue);
+            background: rgba(58, 123, 213, 0.05);
+        }
+
+        .form-group input[type="file"]::file-selector-button {
+            background: var(--metal-silver-text);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 2px;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .form-group input[type="file"]::file-selector-button:hover {
+            filter: brightness(1.2);
+            box-shadow: 0 0 10px rgba(255,255,255,0.4);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 40px;
+            background: var(--metal-button);
+            color: #ffffff;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 6px;
+            border: 1px solid #7ea5e8;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            position: relative;
+            overflow: hidden;
+            animation: pulse-glow 3s infinite alternate;
+            transition: all 0.3s ease;
+            z-index: 1;
+            cursor: pointer;
+            text-align: center;
+        }
         
-        <div class="form-group">
-            <label>W-9 Form</label>
-            <input type="file" name="w9" accept=".pdf, .jpg, .jpeg, .png">
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);
+            transform: skewX(-25deg);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            border-color: #ffffff;
+            color: #ffffff;
+        }
+
+        .btn:hover::before {
+            left: 200%;
+        }
+
+        /* --- Contact Banner --- */
+        .contact-banner {
+            background: linear-gradient(90deg, rgba(15,24,40,1) 0%, rgba(22,36,59,1) 50%, rgba(15,24,40,1) 100%);
+            border-top: 1px solid var(--electric-blue);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 30px 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            box-shadow: 0 0 30px rgba(58, 123, 213, 0.15);
+            position: relative;
+            z-index: 10;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-main);
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .contact-item span {
+            color: var(--electric-blue);
+            text-shadow: 0 0 8px rgba(58, 123, 213, 0.5);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .contact-item a {
+            color: var(--steel-silver);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: #06090f;
+            padding: 40px 5%;
+            text-align: center;
+            box-shadow: inset 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        footer .footer-links {
+            margin-bottom: 25px;
+        }
+        
+        footer .footer-links a {
+            color: var(--text-muted);
+            margin: 0 15px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        footer .footer-links a:hover {
+            color: var(--steel-silver);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        footer p {
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .onboarding-section h1 {
+                font-size: 2.2rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-banner {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="Mastermind Matrix The Black Label High-Tech Emblem.png" alt="Mastermind Matrix: The Black Label Logo">
+            </a>
         </div>
-        <div class="form-group">
-            <label>Certificate of Insurance (COI)</label>
-            <input type="file" name="coi" accept=".pdf, .jpg, .jpeg, .png">
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#services">About Us</a></li>
+                <li><a href="index.html#enrollment">Enrollment Review</a></li>
+                <li><a href="carrier.html" style="color: #ffffff; text-shadow: 0 0 10px rgba(58, 123, 213, 0.8);">Onboarding</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#login" style="color: #7ea5e8; text-shadow: 0 0 12px rgba(58, 123, 213, 0.8);">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Carrier Onboarding Section -->
+    <main class="onboarding-section">
+        <h1 class="dynamic-title">Carrier Onboarding</h1>
+        <p style="color: var(--text-main); font-size: 1.15rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Submit your credentials below to initiate your elite partnership.</p>
+        
+        <div class="glass-panel">
+            <!-- Formspree Endpoint Integration -->
+            <form action="https://formspree.io/f/xdaqpyqa" method="POST" enctype="multipart/form-data">
+                
+                <!-- Custom Email Subject -->
+                <input type="hidden" name="_subject" value="New Carrier Onboarding Submission - Mastermind Matrix">
+
+                <div class="form-grid">
+                    <!-- Standard Inputs -->
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required placeholder="John">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required placeholder="Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="driver@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="(555) 555-5555">
+                    </div>
+                    <div class="form-group">
+                        <label for="mcDot">MC / DOT Number</label>
+                        <input type="text" id="mcDot" name="mcDot" required placeholder="Enter MC or DOT #">
+                    </div>
+                    <div class="form-group">
+                        <label for="companyName">Company Name</label>
+                        <input type="text" id="companyName" name="companyName" required placeholder="LLC or Inc.">
+                    </div>
+
+                    <!-- Document Uploads (Optional) -->
+                    <div class="form-group full-width">
+                        <h3 style="color: #fff; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; font-weight: 500; letter-spacing: 1px;">Required Documents (Optional)</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>W-9 Form</label>
+                        <input type="file" name="w9" accept=".pdf, .jpg, .jpeg, .png">
+                    </div>
+                    <div class="form-group">
+                        <label>Certificate of Insurance (COI)</label>
+                        <input type="file" name="coi" accept=".pdf, .jpg, .jpeg, .png">
+                    </div>
+                    <div class="form-group">
+                        <label>Notice of Assignment (NOA)</label>
+                        <input type="file" name="noa" accept=".pdf, .jpg, .jpeg, .png">
+                    </div>
+                    <div class="form-group">
+                        <label>Driver's License</label>
+                        <input type="file" name="license" accept=".pdf, .jpg, .jpeg, .png">
+                    </div>
+                    <div class="form-group full-width" style="border-top: none; padding-top: 0; margin-top: 0;">
+                        <label>Certificate of Authority</label>
+                        <input type="file" name="authority" accept=".pdf, .jpg, .jpeg, .png">
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <button type="submit" class="btn">Submit Credentials</button>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label>Notice of Assignment (NOA)</label>
-            <input type="file" name="noa" accept=".pdf, .jpg, .jpeg, .png">
+    </main>
+
+    <!-- Elite Contact Banner -->
+    <div id="contact" class="contact-banner">
+        <div class="contact-item">
+            <span>Email</span>
+            <a href="mailto:dispatch@mmblacklabel.com">dispatch@mmblacklabel.com</a>
         </div>
-        <div class="form-group">
-            <label>Driver's License</label>
-            <input type="file" name="license" accept=".pdf, .jpg, .jpeg, .png">
+        <div class="contact-item">
+            <span>Call</span>
+            <a href="tel:2053836124">(205) 383-6124</a>
         </div>
-        <div class="form-group full-width" style="border-top: none; padding-top: 0; margin-top: 0;">
-            <label>Certificate of Authority</label>
-            <input type="file" name="authority" accept=".pdf, .jpg, .jpeg, .png">
+        <div class="contact-item">
+            <span>Alt</span>
+            <a href="tel:2562797975">(256) 279-7975</a>
+        </div>
+        <div class="contact-item">
+            <span>Hours</span>
+            Open 24/7
         </div>
     </div>
 
-    <div style="text-align: center; margin-top: 40px;">
-        <button type="submit" class="btn">Submit Credentials</button>
-    </div>
-</form>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#services">About Us</a>
+            <a href="index.html#enrollment">Enrollment Review</a>
+            <a href="carrier.html">Onboarding</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+        <p>&copy; 2026 Mastermind Matrix: The Black Label. All Rights Reserved.</p>
+        <p style="margin-top: 10px;">Driven to Deliver Consistent Profits and Partnership.</p>
+    </footer>
+
+</body>
+</html>
