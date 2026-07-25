@@ -139,12 +139,11 @@
         .onboarding-section {
             padding: 80px 5% 100px;
             text-align: center;
-            flex-grow: 1; /* Pushes footer to bottom if content is short */
+            flex-grow: 1; 
             position: relative;
             z-index: 1;
         }
 
-        /* Subtle background glow behind the form */
         .onboarding-section::before {
             content: '';
             position: absolute;
@@ -422,14 +421,12 @@
     <!-- Header Navigation -->
     <header>
         <div class="logo-container">
-            <!-- Link points back to the main site -->
             <a href="index.html">
                 <img src="Mastermind Matrix The Black Label High-Tech Emblem.png" alt="Mastermind Matrix: The Black Label Logo">
             </a>
         </div>
         <nav>
             <ul>
-                <!-- Links updated to include Onboarding -->
                 <li><a href="index.html#home">Home</a></li>
                 <li><a href="index.html#services">About Us</a></li>
                 <li><a href="index.html#enrollment">Enrollment Review</a></li>
@@ -446,17 +443,17 @@
         <p style="color: var(--text-main); font-size: 1.15rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Submit your credentials below to initiate your elite partnership.</p>
         
         <div class="glass-panel">
-            <!-- Web3Forms Integration -->
-            <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+            <!-- FormSubmit Integration -->
+            <form action="https://formsubmit.co/el/kitube" method="POST" enctype="multipart/form-data">
                 
-                <!-- Web3Forms Access Key inserted here -->
-                <input type="hidden" name="access_key" value="9e4b2e3a-7131-4a90-81b1-94c05dd939a7">
+                <!-- Disable Captcha for smooth driver experience -->
+                <input type="hidden" name="_captcha" value="false">
                 
-                <!-- Custom subject for the email you receive -->
-                <input type="hidden" name="subject" value="New Carrier Onboarding Submission - Mastermind Matrix">
+                <!-- Custom Email Subject -->
+                <input type="hidden" name="_subject" value="New Carrier Onboarding Submission - Mastermind Matrix">
 
-                <!-- Success Redirect back to index page -->
-                <input type="hidden" name="redirect" value="https://tatumtakia-crypto.github.io/mastermind/index.html">
+                <!-- Redirect back to homepage after submission -->
+                <input type="hidden" name="_next" value="https://tatumtakia-crypto.github.io/mastermind/index.html">
 
                 <div class="form-grid">
                     <!-- Standard Inputs -->
