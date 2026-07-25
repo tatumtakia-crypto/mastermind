@@ -1,1 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Enrollment & Carrier Requirements for Crown Access. Review our onboarding process and equipment specifications.">
+    <title>Enrollment & Requirements | Crown Access</title>
+    
+    <style>
+        /* Elite Global Logistics Variables */
+        :root {
+            --bg-base: #0f1828; 
+            --text-main: #e2e8f0;
+            --text-muted: #a0aec0;
+            
+            --electric-blue: #3a7bd5;
+            --steel-silver: #cbd5e1;
+            --compass-gold: #b38b4d;
+            
+            --metal-silver-text: linear-gradient(90deg, #8ba3c0 0%, #ffffff 25%, #cbd5e1 50%, #ffffff 75%, #8ba3c0 100%);
+            --metal-button: linear-gradient(135deg, #4a8deb 0%, #2a5298 45%, #16305e 50%, #2a5298 55%, #3a7bd5 100%);
+            
+            --grid-line: rgba(58, 123, 213, 0.12);
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            background-image: 
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-position: center center;
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        /* Animations */
+        @keyframes text-shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 15px rgba(58, 123, 213, 0.4), inset 0 1px 2px rgba(255,255,255,0.6); }
+            50% { box-shadow: 0 0 30px rgba(58, 123, 213, 0.8), inset 0 2px 5px rgba(255,255,255,0.9); }
+            100% { box-shadow: 0 0 15px rgba(58, 123, 213, 0.4), inset 0 1px 2px rgba(255,255,255,0.6); }
+        }
+
+        /* Header Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: rgba(15, 24, 40, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .logo-container img {
+            max-height: 70px;
+            width: auto;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container img:hover {
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+        }
+
+        nav a {
+            color: var(--steel-silver);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.85rem;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--electric-blue);
+            transition: width 0.3s ease;
+            box-shadow: 0 0 8px var(--electric-blue);
+        }
+
+        nav a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(58, 123, 213, 0.8);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .dynamic-title {
+            background: var(--metal-silver-text);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.8));
+            animation: text-shimmer 6s linear infinite;
+            text-transform: uppercase;
+        }
+
+        /* --- Content Sections --- */
+        .enrollment-section {
+            padding: 80px 5% 100px;
+            text-align: center;
+            flex-grow: 1; 
+            position: relative;
+            z-index: 1;
+        }
+
+        .enrollment-section::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%; height: 80%;
+            background: radial-gradient(circle, rgba(58, 123, 213, 0.1) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .enrollment-section h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .glass-panel {
+            background: rgba(22, 36, 59, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+            padding: 40px;
+            max-width: 1000px;
+            margin: 40px auto 0;
+            text-align: left;
+        }
+
+        .glass-panel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 60px 60px 0;
+            border-color: transparent var(--compass-gold) transparent transparent;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .section-title {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .content-block p {
+            color: var(--text-main);
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .steps-grid, .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card-item {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(126, 165, 232, 0.2);
+            border-radius: 8px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .card-item:hover {
+            border-color: var(--electric-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(58, 123, 213, 0.2);
+        }
+
+        .card-item h3 {
+            color: var(--electric-blue);
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .card-item ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .card-item ul li {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .card-item ul li::before {
+            content: '▪';
+            position: absolute;
+            left: 0;
+            color: var(--compass-gold);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: var(--metal-button);
+            color: #ffffff;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 6px;
+            border: 1px solid #7ea5e8;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            position: relative;
+            overflow: hidden;
+            animation: pulse-glow 3s infinite alternate;
+            transition: all 0.3s ease;
+            z-index: 1;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            border-color: #ffffff;
+            color: #ffffff;
+        }
+
+        /* --- Contact Banner --- */
+        .contact-banner {
+            background: linear-gradient(90deg, rgba(15,24,40,1) 0%, rgba(22,36,59,1) 50%, rgba(15,24,40,1) 100%);
+            border-top: 1px solid var(--electric-blue);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 30px 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            box-shadow: 0 0 30px rgba(58, 123, 213, 0.15);
+            position: relative;
+            z-index: 10;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-main);
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .contact-item span {
+            color: var(--electric-blue);
+            text-shadow: 0 0 8px rgba(58, 123, 213, 0.5);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .contact-item a {
+            color: var(--steel-silver);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: #06090f;
+            padding: 40px 5%;
+            text-align: center;
+            box-shadow: inset 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        footer .footer-links {
+            margin-bottom: 25px;
+        }
+        
+        footer .footer-links a {
+            color: var(--text-muted);
+            margin: 0 15px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        footer .footer-links a:hover {
+            color: var(--steel-silver);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        footer p {
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .enrollment-section h1 {
+                font-size: 2.2rem;
+            }
+
+            .contact-banner {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="Mastermind Matrix The Black Label High-Tech Emblem.png" alt="Mastermind Matrix: The Black Label Logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="enrollment.html" style="color: #ffffff; text-shadow: 0 0 10px rgba(58, 123, 213, 0.8);">Enrollment Review</a></li>
+                <li><a href="carrier.html">Onboarding</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#login" style="color: #7ea5e8; text-shadow: 0 0 12px rgba(58, 123, 213, 0.8);">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Enrollment & Requirements Section -->
+    <main class="enrollment-section">
+        <h1 class="dynamic-title">Enrollment & Requirements</h1>
+        <p style="color: var(--text-main); font-size: 1.15rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Review our streamlined onboarding workflow and carrier compliance criteria.</p>
+        
+        <!-- Onboarding Process Panel -->
+        <div class="glass-panel">
+            <h2 class="section-title">The Onboarding Process</h2>
+            <div class="content-block">
+                <p>Joining the Crown Access dispatch network is structured for speed, transparency, and high-efficiency freight booking. We proudly welcome brand new MC authorities and streamline your path to profitability:</p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="card-item">
+                    <h3>Step 1: Credential Submission</h3>
+                    <ul>
+                        <li>Navigate to our Onboarding portal.</li>
+                        <li>Provide your legal company details, active DOT/MC number, and contact info.</li>
+                        <li>Upload your required FMCSA compliance documents securely.</li>
+                    </ul>
+                </div>
+                <div class="card-item">
+                    <h3>Step 2: Compliance Review</h3>
+                    <ul>
+                        <li>We verify your active DOT / MC registration details.</li>
+                        <li>Review of standard insurance coverage minimums as mandated by FMCSA.</li>
+                        <li>Verification of authority documentation and W-9.</li>
+                    </ul>
+                </div>
+                <div class="card-item">
+                    <h3>Step 3: Dispatch Integration</h3>
+                    <ul>
+                        <li>Sign our mutual dispatch agreement and Limited Power of Attorney (LPOA).</li>
+                        <li>Establish lane preferences, target rate-per-mile, and operating zones.</li>
+                        <li>Begin immediate high-paying load booking and dispatch execution.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carrier Requirements by Equipment Type Panel -->
+        <div class="glass-panel" style="margin-top: 50px;">
+            <h2 class="section-title">Carrier Requirements & Equipment Standards</h2>
+            <div class="content-block">
+                <p>We work with brand new MC numbers and accept all equipment types operating entirely within standard FMCSA guidelines. There are no arbitrary length restrictions or experience minimums outside of regulatory requirements:</p>
+            </div>
+            
+            <div class="equipment-grid">
+                <div class="card-item">
+                    <h3>General Carrier Criteria</h3>
+                    <ul>
+                        <li>Brand new MC numbers and startup authorities fully welcomed.</li>
+                        <li>Active DOT number required (MC preferred, but optional unless mandated by FMCSA).</li>
+                        <li>Full compliance with all standard FMCSA safety and operating regulations.</li>
+                        <li>Standard insurance coverage aligned with federal mandates.</li>
+                    </ul>
+                </div>
+                <div class="card-item">
+                    <h3>Equipment Flexibility</h3>
+                    <ul>
+                        <li>All commercial equipment types accepted within FMCSA standards.</li>
+                        <li>No arbitrary minimum length requirements or restrictions.</li>
+                        <li>Dry Vans, Reefers, Flatbeds, Step Decks, Box Trucks, and Power Only welcome.</li>
+                        <li>Equipment must meet general federal safety and inspection standards.</li>
+                    </ul>
+                </div>
+                <div class="card-item">
+                    <h3>Operational Readiness</h3>
+                    <ul>
+                        <li>Reliable communication standards for daily dispatch updates.</li>
+                        <li>Professional representation with brokers and shippers.</li>
+                        <li>Commitment to consistent lane optimization and high-yielding freight.</li>
+                        <li>Direct access to our dedicated back-office support team 24/7.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="carrier.html" class="btn">Proceed to Onboarding Portal</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Elite Contact Banner -->
+    <div id="contact" class="contact-banner">
+        <div class="contact-item">
+            <span>Email</span>
+            <a href="mailto:dispatch@mmblacklabel.com">dispatch@mmblacklabel.com</a>
+        </div>
+        <div class="contact-item">
+            <span>Call</span>
+            <a href="tel:2053836124">(205) 383-6124</a>
+        </div>
+        <div class="contact-item">
+            <span>Alt</span>
+            <a href="tel:2562797975">(256) 279-7975</a>
+        </div>
+        <div class="contact-item">
+            <span>Hours</span>
+            Open 24/7
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="enrollment.html">Enrollment Review</a>
+            <a href="carrier.html">Onboarding</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <p>&copy; 2026 Mastermind Matrix: The Black Label. All Rights Reserved.</p>
+        <p style="margin-top: 10px;">Driven to Deliver Consistent Profits and Partnership.</p>
+    </footer>
+
+</body>
+</html>
